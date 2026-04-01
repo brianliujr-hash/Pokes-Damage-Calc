@@ -110,7 +110,7 @@ def battle(player1:Pokemon, player2:Pokemon) -> int:
     if player1.hp <= 0:
         return 1 
     else:
-        return 2    
+        return 2 
         
         
     
