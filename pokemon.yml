@@ -1,0 +1,148 @@
+---
+
+attacks:
+    "Tackle":
+        type: NORMAL
+        power: 35
+    "Scratch":
+        type: NORMAL
+        power: 40
+    "Ember":
+        type: FIRE
+        power: 40
+    "Leer":
+        type: NORMAL
+        power: 0
+    "Tail Whip":
+        type: NORMAL
+        power: 0
+    "Water Gun":
+        type: WATER
+        power: 40
+    "Bubble":
+        type: WATER
+        power: 20
+    "Vine Whip":
+        type: GRASS
+        power: 35
+    "Growl":
+        type: NORMAL
+        power: 0
+    "Leech Seed":
+        type: GRASS
+        power: 0
+    "ThunderShock":
+        type: ELECTRIC
+        power: 40
+    "Thunder Wave":
+        type: ELECTRIC
+        power: 0
+    "Quick Attack":
+        type: NORMAL
+        power: 40
+    "Focus Energy":
+        type: NORMAL
+        power: 0
+    "Razor Leaf":
+        type: GRASS
+        power: 55
+pokemon:
+    "Charmander":
+        type: FIRE
+        hp: 34
+        level: 15
+        attack: 30
+        defence: 27
+        known_attacks:
+            - "Scratch"
+            - "Growl"
+            - "Ember"
+            - "Leer"
+    "Vulpix":
+        type: FIRE
+        hp: 36
+        level: 15
+        attack: 29
+        defence: 28
+        known_attacks:
+            - "Ember"
+            - "Quick Attack"
+    "Squirtle":
+        type: WATER
+        hp: 37
+        level: 15
+        attack: 28
+        defence: 35
+        known_attacks:
+            - "Tackle"
+            - "Tail Whip"
+            - "Bubble"
+            - "Water Gun"
+    "Poliwag":
+        type: WATER
+        hp: 34
+        level: 15
+        attack: 27
+        defence: 27
+        known_attacks:
+            - "Bubble"
+    "Bulbasaur":
+        type: GRASS
+        hp: 36
+        level: 15
+        attack: 28
+        defence: 28
+        known_attacks:
+            - "Tackle"
+            - "Growl"
+            - "Leech Seed"
+            - "Vine Whip"
+
+    "Oddish":
+        type: GRASS
+        hp: 38
+        level: 15
+        attack: 29
+        defence: 30
+        known_attacks:
+            - "Razor Leaf"
+            - "Growl"
+    "Pikachu":
+        type: ELECTRIC
+        hp: 33
+        level: 15
+        attack: 30
+        defence: 20
+        known_attacks:
+            - "ThunderShock"
+            - "Growl"
+            - "Thunder Wave"
+            - "Quick Attack"
+
+    "Magnemite":
+        type: ELECTRIC
+        hp: 34
+        level: 15
+        attack: 24
+        defence: 38
+        known_attacks:
+            - "ThunderShock"
+            - "Tackle"
+    "Rattata":
+        type: NORMAL
+        hp: 35
+        level: 15
+        attack: 32
+        defence: 22
+        known_attacks:
+            - "Tackle"
+            - "Quick Attack"
+            - "Focus Energy"
+    "Eevee":
+        type: NORMAL
+        hp: 37
+        level: 15
+        attack: 30
+        defence: 27
+        known_attacks:
+            - "Tackle"
