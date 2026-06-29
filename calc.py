@@ -2,12 +2,15 @@ import random
 import os
 import copy
 
-from PokemonTypes import PokemonType, get_effectiveness
+from PokemonTypes import PokemonType, get_effectiveness, super_effective_against, not_effective_against
 from pokemon import Pokemon, Attack
 from pokemon import load_pokemon
+
+import fields
+from fields import Field
     
 
-def calculate_damage(attacker:Pokemon, defender:Pokemon, critical:bool):
+def calculate_damage(attacker:Pokemon, defender:Pokemon, critical:bool, field:Field):
 
     critical_mod = 2 if critical else 1
     
@@ -24,6 +27,8 @@ def calculate_damage(attacker:Pokemon, defender:Pokemon, critical:bool):
     base_damage = (level_and_crit_mod * used_attack.power * a_div_d / 50) + 2
     
     type_effectiveness_modifier = get_effectiveness(attacker.type, defender.type)
+    
+    field_modifier = field.calculate_modifier(attacker)
     
     return round(base_damage * random_modifier * type_effectiveness_modifier * same_type_bonus, 1)
 
@@ -67,14 +72,16 @@ def battle(player1:Pokemon, player2:Pokemon) -> int:
     Returns who wins the battle 
     """
     turn = random.randint(1,2)
+    field = Field.create()
     print("============== BATTLE ===================")
+    print(f"Field conditions: The terrain is {field.terrain} and the weather is {field.weather}!")
     print(f"Player {turn} you go first!")
     
     
     while player1.hp > 0 and player2.hp > 0:
         
         print("Player1")
-        player1.list_stats()  
+        player1.list_stats()
         print("Player2")
         player2.list_stats()
               
@@ -92,11 +99,20 @@ def battle(player1:Pokemon, player2:Pokemon) -> int:
         
         # make damage
         
+        attack = attacker.get_current_attack()
+        attack_type = attack.type
+        defend_type = defender.type
+        
+        
         critical = random.random() > 0.9
         print(f"{attacker.name} used {attacker.get_current_attack().name}!")
-        damage = calculate_damage(attacker, defender, critical)
+        damage = calculate_damage(attacker, defender, critical, field)
         if critical:
             print("It was a critical hit!")
+        if defend_type in super_effective_against[attack_type]:
+            print("It was super effective!")
+        if defend_type in not_effective_against[attack_type]:
+            print("It was not very effective!")
         
         # take hp
         
@@ -106,6 +122,8 @@ def battle(player1:Pokemon, player2:Pokemon) -> int:
         # next turn
         
         turn = 1 if turn == 2 else 2
+        
+        print(f"")
         
     if player1.hp <= 0:
         return 1 
