@@ -104,7 +104,7 @@ def battle(player1:Pokemon, player2:Pokemon) -> int:
         defend_type = defender.type
         
         
-        critical = random.random() > 0.9
+        critical = random.random() > 0.9375
         print(f"{attacker.name} used {attacker.get_current_attack().name}!")
         damage = calculate_damage(attacker, defender, critical, field)
         if critical:
